@@ -1,0 +1,2046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codex Brisketicus Vol. I — The Sacred Shrine of George Cooper's Brisket</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=VT323&family=Press+Start+2P&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: #f5ead0;
+    color: #3b1a00;
+    font-family: 'IM Fell English', serif;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(160,100,20,0.03) 2px,
+      rgba(160,100,20,0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body > * { position: relative; z-index: 1; }
+
+  /* ── OUTER FRAME ── */
+  .frame {
+    max-width: 960px;
+    margin: 12px auto;
+    border: 3px double #c8860a;
+    position: relative;
+    background: #fdf6e3;
+  }
+
+  .corner { position: absolute; font-size: 24px; color: #c8860a; line-height: 1; }
+  .c-tl { top: -4px; left: 4px; }
+  .c-tr { top: -4px; right: 4px; }
+  .c-bl { bottom: -4px; left: 4px; }
+  .c-br { bottom: -4px; right: 4px; }
+
+  /* ── MARQUEE ── */
+  .marquee-bar {
+    background: #c8860a;
+    color: #fdf6e3;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    padding: 6px 0;
+    border-top: 2px solid #8b5e0a;
+    border-bottom: 2px solid #8b5e0a;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: 1px;
+  }
+  .marquee-inner {
+    display: inline-block;
+    animation: scrollL 38s linear infinite;
+  }
+  @keyframes scrollL {
+    from { transform: translateX(100vw); }
+    to   { transform: translateX(-100%); }
+  }
+
+  /* ── HERO ── */
+  .hero {
+    text-align: center;
+    padding: 32px 20px 22px;
+    background: #fdf6e3;
+    border-bottom: 3px double #c8860a;
+  }
+  .hero-eyebrow {
+    font-family: 'VT323', monospace;
+    font-size: 15px;
+    color: #a07030;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #3b1a00;
+    letter-spacing: 3px;
+    line-height: 1.25;
+  }
+  .hero-title span { color: #c8860a; }
+  .hero-sub {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: #7a4a10;
+    margin: 14px auto;
+    max-width: 560px;
+    line-height: 1.7;
+  }
+  .radiant-rule {
+    width: 240px;
+    margin: 12px auto;
+    border: none;
+    border-top: 1px solid #c8860a;
+    position: relative;
+  }
+  .radiant-rule::before {
+    content: '✦';
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #c8860a;
+    background: #fdf6e3;
+    padding: 0 8px;
+    font-size: 15px;
+  }
+  .hero-stamp {
+    font-family: 'VT323', monospace;
+    font-size: 14px;
+    color: #a07030;
+    letter-spacing: 4px;
+  }
+  .blink { animation: blink 1.2s step-end infinite; }
+  @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+
+  /* ── NAV ── */
+  .nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    background: #3b1a00;
+    border-bottom: 2px solid #c8860a;
+  }
+  .nav-bar a {
+    font-family: 'VT323', monospace;
+    font-size: 17px;
+    color: #f0c96a;
+    text-decoration: none;
+    padding: 9px 16px;
+    border-right: 1px solid #5a3200;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: background 0.15s;
+  }
+  .nav-bar a:hover, .nav-bar a.active { background: #5a3200; color: #fdf6e3; }
+
+  /* ── LAYOUT ── */
+  .layout {
+    display: grid;
+    grid-template-columns: 200px 1fr 180px;
+    min-height: 600px;
+  }
+
+  /* ── SIDEBARS ── */
+  .sidebar-l, .sidebar-r {
+    background: #fdf0d0;
+    padding: 14px 12px;
+    font-size: 14px;
+  }
+  .sidebar-l { border-right: 1px solid #d4a040; }
+  .sidebar-r { border-left: 1px solid #d4a040; }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    color: #c8860a;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-bottom: 1px solid #d4a040;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+  }
+
+  .sacred-stat {
+    text-align: center;
+    border: 1px solid #d4a040;
+    padding: 9px 4px;
+    margin-bottom: 9px;
+    background: #faecc0;
+  }
+  .stat-label {
+    font-family: 'VT323', monospace;
+    font-size: 12px;
+    color: #a07030;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .stat-val {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #3b1a00;
+    display: block;
+  }
+
+  .ornament-div {
+    text-align: center;
+    font-size: 14px;
+    color: #c8860a;
+    margin: 10px 0;
+    letter-spacing: 4px;
+  }
+
+  .tag-pill {
+    display: inline-block;
+    border: 1px solid #c8860a;
+    color: #7a4a10;
+    font-family: 'VT323', monospace;
+    font-size: 14px;
+    padding: 1px 7px;
+    margin: 2px 1px;
+    background: #faecc0;
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+  .tag-pill:hover { background: #c8860a; color: #fdf6e3; }
+
+  .progress-holy {
+    border: 1px solid #c8860a;
+    height: 14px;
+    background: #faecc0;
+    margin: 4px 0;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: repeating-linear-gradient(90deg, #c8860a 0, #c8860a 4px, #e8b050 4px, #e8b050 8px);
+    width: 82%;
+  }
+
+  .hit-counter-holy {
+    font-family: 'VT323', monospace;
+    font-size: 24px;
+    color: #3b1a00;
+    background: #faecc0;
+    border: 1px solid #c8860a;
+    padding: 2px 10px;
+    letter-spacing: 4px;
+    display: inline-block;
+  }
+
+  .holy-btn {
+    width: 100%;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #3b1a00;
+    background: #faecc0;
+    border: 1px solid #c8860a;
+    padding: 9px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.15s, color 0.15s;
+    margin-top: 4px;
+  }
+  .holy-btn:hover { background: #c8860a; color: #fdf6e3; }
+
+  .days-num {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #3b1a00;
+    text-align: center;
+    display: block;
+  }
+
+  .live-item {
+    font-family: 'IM Fell English', serif;
+    font-size: 13px;
+    color: #3b1a00;
+    padding: 4px 0;
+    border-bottom: 1px solid #e8d090;
+    line-height: 1.4;
+  }
+  .live-item em {
+    color: #c8860a;
+    font-style: normal;
+    font-family: 'VT323', monospace;
+    font-size: 14px;
+  }
+
+  .rating-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 22px;
+    margin: 8px 0;
+  }
+  .rating-btn {
+    cursor: pointer;
+    color: #c8860a;
+    font-size: 20px;
+    line-height: 1;
+    border: none;
+    background: none;
+    transition: transform 0.1s;
+  }
+  .rating-btn:hover { transform: scale(1.3); }
+
+  .aura-display {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #7a4a10;
+    text-align: center;
+    min-height: 40px;
+    line-height: 1.5;
+    margin-top: 8px;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .main-content {
+    padding: 22px 24px;
+    background: #fdf6e3;
+  }
+
+  .section-panel { display: none; }
+  .section-panel.active { display: block; }
+
+  /* ── SCRIPTURE ── */
+  .warning-illuminated {
+    border: 2px solid #8b3a00;
+    background: #faecc0;
+    padding: 14px 16px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .warning-illuminated .w-title {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: #8b3a00;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .warning-illuminated .w-body {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: #5a2200;
+    line-height: 1.7;
+  }
+  .warning-illuminated .w-body em {
+    font-style: normal;
+    color: #c8860a;
+  }
+
+  .scripture-block {
+    border: 1px solid #d4a040;
+    background: #fdf0d0;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .scripture-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #c8860a;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .scripture-text {
+    font-family: 'IM Fell English', serif;
+    font-size: 15.5px;
+    color: #3b1a00;
+    line-height: 1.85;
+  }
+  .scripture-text em { color: #8b3a00; }
+
+  .illuminated-cap {
+    float: left;
+    font-family: 'Cinzel', serif;
+    font-size: 58px;
+    font-weight: 700;
+    color: #c8860a;
+    line-height: 0.75;
+    margin: 4px 8px 0 0;
+    border: 2px solid #c8860a;
+    padding: 4px 8px;
+    background: #faecc0;
+  }
+
+  .verse-num {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    font-weight: 700;
+    color: #c8860a;
+    vertical-align: super;
+    margin-right: 2px;
+  }
+
+  .rubric {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 13.5px;
+    color: #c8860a;
+    border-left: 3px solid #c8860a;
+    padding-left: 12px;
+    margin: 10px 0 4px;
+    line-height: 1.6;
+  }
+
+  .folio-num {
+    font-family: 'VT323', monospace;
+    font-size: 12px;
+    color: #a07030;
+    position: absolute;
+    bottom: 6px;
+    right: 10px;
+  }
+
+  .dialogue-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .speaker-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    color: #c8860a;
+    font-weight: 700;
+    letter-spacing: 1px;
+    min-width: 100px;
+    padding-top: 4px;
+  }
+  .dialogue-bubble {
+    border: 1px solid #d4a040;
+    background: #faecc0;
+    padding: 9px 12px;
+    font-family: 'IM Fell English', serif;
+    font-size: 14px;
+    color: #3b1a00;
+    line-height: 1.6;
+    flex: 1;
+  }
+  .dialogue-bubble em { color: #a07030; }
+
+  .canon-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .canon-cell {
+    border: 1px solid #d4a040;
+    padding: 10px;
+    background: #faecc0;
+  }
+  .canon-cell-label {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: #a07030;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .canon-cell-val {
+    font-family: 'IM Fell English', serif;
+    font-size: 14px;
+    color: #3b1a00;
+  }
+
+  .transf-log {
+    border-left: 3px solid #c8860a;
+    border-top: 1px solid #d4a040;
+    border-right: 1px solid #d4a040;
+    border-bottom: 1px solid #d4a040;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    background: #fdf0d0;
+  }
+  .transf-head {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #8b3a00;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .threat-meter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-family: 'VT323', monospace;
+    font-size: 13px;
+    color: #a07030;
+    flex-wrap: wrap;
+  }
+  .threat-meter strong { color: #c8860a; }
+  .threat-meter em { color: #8b3a00; font-style: normal; }
+
+  .george-stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin-bottom: 14px;
+  }
+
+  .post-entry {
+    border: 1px solid #d4a040;
+    margin-bottom: 14px;
+    background: #fdf0d0;
+  }
+  .post-head {
+    background: #3b1a00;
+    padding: 6px 12px;
+    font-family: 'VT323', monospace;
+    font-size: 13px;
+    color: #f0c96a;
+    letter-spacing: 1px;
+  }
+  .post-body-inner {
+    padding: 12px 14px;
+    font-family: 'IM Fell English', serif;
+    font-size: 15px;
+    color: #3b1a00;
+    line-height: 1.75;
+  }
+  .post-body-inner em { color: #8b3a00; }
+  .post-foot {
+    border-top: 1px solid #d4a040;
+    padding: 5px 12px;
+    font-family: 'VT323', monospace;
+    font-size: 13px;
+    color: #a07030;
+    display: flex;
+    gap: 20px;
+  }
+
+  /* ── FOOTER ── */
+  .footer-holy {
+    background: #3b1a00;
+    text-align: center;
+    padding: 16px;
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: #f0c96a;
+    border-top: 3px double #c8860a;
+    line-height: 2;
+  }
+  .footer-holy .f-mono {
+    font-family: 'VT323', monospace;
+    font-size: 14px;
+    color: #a07030;
+    letter-spacing: 2px;
+    font-style: normal;
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar-l, .sidebar-r { border: none; border-bottom: 1px solid #d4a040; }
+    .hero-title { font-size: 22px; }
+    .canon-grid { grid-template-columns: 1fr; }
+    .george-stat-grid { grid-template-columns: 1fr 1fr; }
+    .dialogue-row { flex-direction: column; gap: 4px; }
+    .speaker-tag { min-width: unset; }
+  }
+</style>
+</head>
+<body>
+
+<div class="frame">
+  <span class="corner c-tl">✦</span>
+  <span class="corner c-tr">✦</span>
+  <span class="corner c-bl">✦</span>
+  <span class="corner c-br">✦</span>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar" aria-hidden="true">
+    <span class="marquee-inner">
+      ✦ &nbsp; IN THE BEGINNING THERE WAS BRISKET &nbsp; ✦ &nbsp; AND GEORGE SAW THAT IT WAS GOOD &nbsp; ✦ &nbsp; MEEMAW REFUSED TO YIELD THE RECIPE &nbsp; ✦ &nbsp; AND YET THE SMOKE CONTINUETH &nbsp; ✦ &nbsp; SHELDON IS FINE. PROBABLY. &nbsp; ✦ &nbsp; THE LORE IS UPON US &nbsp; ✦ &nbsp; EAST TEXAS, ANNO DOMINI 1989 &nbsp; ✦ &nbsp; GEORGE 1:7 — "I JUST NEED ONE INGREDIENT" &nbsp; ✦ &nbsp; THE BRISKET ENDURES &nbsp; ✦ &nbsp; WE ARE ALL INSIDE THE SMOKER NOW &nbsp; ✦ &nbsp;
+    </span>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-eyebrow">Codex Brisketicus &nbsp;·&nbsp; Vol. I</div>
+    <h1 class="hero-title">The <span>Sacred Shrine</span> of<br>George Cooper's Brisket</h1>
+    <hr class="radiant-rule">
+    <p class="hero-sub">
+      A most solemn and irrevocably absurd illuminated manuscript,<br>
+      dedicated unto the meat, the man, and the mystery<br>
+      that hath consumed East Texas entire.
+    </p>
+    <div class="hero-stamp blink">
+      ✦ &nbsp; SEASON 1 · EPISODE 7 · ANNO DOMINI 2017 &nbsp; ✦
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+    <a onclick="showP('lore')" id="nav-lore" class="active">I. Lore</a>
+    <a onclick="showP('canon')" id="nav-canon">II. Canon</a>
+    <a onclick="showP('transformations')" id="nav-transformations">III. Transformations</a>
+    <a onclick="showP('george')" id="nav-george">IV. George</a>
+    <a onclick="showP('testimony')" id="nav-testimony">V. Testimony</a>
+    <a onclick="showP('about')" id="nav-about">VI. Colophon</a>
+  </nav>
+
+  <!-- LAYOUT -->
+  <div class="layout">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar-l">
+      <div class="section-title">Reliquary</div>
+
+      <div class="sacred-stat">
+        <span class="stat-label">PRAYERS OFFERED</span>
+        <span class="stat-val" id="prayerCount">49</span>
+      </div>
+
+      <div class="sacred-stat">
+        <span class="stat-label">RECIPE OBTAINED</span>
+        <span class="stat-val">NONE</span>
+      </div>
+
+      <div class="sacred-stat">
+        <span class="stat-label">PILGRIMS</span>
+        <span class="hit-counter-holy" id="hitC">00051</span>
+      </div>
+
+      <div class="ornament-div">— ✦ —</div>
+
+      <div class="section-title">Tags &amp; Relics</div>
+      <div>
+        <span class="tag-pill">#brisket</span>
+        <span class="tag-pill">#george</span>
+        <span class="tag-pill">#meemaw</span>
+        <span class="tag-pill">#s1e7</span>
+        <span class="tag-pill">#lore</span>
+        <span class="tag-pill">#smoker</span>
+        <span class="tag-pill">#aura</span>
+        <span class="tag-pill">#eastTexas</span>
+        <span class="tag-pill">#sheldon</span>
+        <span class="tag-pill">#brainrot</span>
+      </div>
+
+      <div class="ornament-div">— ✦ —</div>
+
+      <div class="section-title">The Smoke</div>
+      <div style="font-family:'VT323',monospace;font-size:13px;color:#a07030;margin-bottom:4px;letter-spacing:1px;">INTERNAL TEMPERATURE</div>
+      <div class="progress-holy"><div class="progress-fill"></div></div>
+      <div style="font-family:'IM Fell English',serif;font-size:13px;color:#8b3a00;text-align:right;">202 of 225 °F</div>
+      <div style="font-family:'IM Fell English',serif;font-style:italic;font-size:13px;color:#a07030;margin-top:5px;" class="blink">Nearly. Nearly.</div>
+
+      <div class="ornament-div">— ✦ —</div>
+
+      <button class="holy-btn" onclick="addPrayer()">✦ &nbsp; OFFER A PRAYER &nbsp; ✦</button>
+
+      <div class="ornament-div">— ✦ —</div>
+
+      <div class="section-title">Days Since S1E7</div>
+      <span class="days-num" id="daysSince">—</span>
+      <div style="font-family:'IM Fell English',serif;font-style:italic;font-size:12px;color:#a07030;text-align:center;margin-top:2px;">days of unresolved yearning</div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+      <!-- LORE -->
+      <div class="section-panel active" id="panel-lore">
+
+        <div class="warning-illuminated">
+          <div class="w-title">✦ &nbsp; A NOTICE TO THE PILGRIM &nbsp; ✦</div>
+          <div class="w-body">
+            What follows is both scripture and nonsense.<br>
+            These two things are not mutually exclusive.<br>
+            <em>George Cooper knew this.</em>
+          </div>
+        </div>
+
+        <div class="scripture-block">
+          <span class="scripture-label">Chapter the First — The Obsession</span>
+          <p class="scripture-text">
+            <span class="illuminated-cap">I</span>
+            <span class="verse-num">1</span>n the year of our Lord nineteen-eighty-nine, in the great flat kingdom of East Texas, there lived a man called George Cooper. He was a football coach, a husband, and a father — and he was <em>fine</em>. <span class="verse-num">2</span>Until he tasted the brisket. <span class="verse-num">3</span>And then he was not fine. He was something else entirely. He was a man with a <em>calling</em>.
+          </p>
+          <div class="rubric">
+            "I don't know what she puts in that rub," George said, to no one, to everyone, to the smoker, to God. The smoker did not reply. This is canonical.
+          </div>
+          <span class="folio-num">fol. I r°</span>
+        </div>
+
+        <div class="scripture-block">
+          <span class="scripture-label">Chapter the Second — The Refusal of Meemaw</span>
+          <p class="scripture-text">
+            <span class="verse-num">1</span>Meemaw Constance Tucker, keeper of the Recipe, keeper of secrets, keeper of bourbon, regarded George with the mild contempt she reserved for people who <em>needed</em> things. <span class="verse-num">2</span>He asked. She refused. <span class="verse-num">3</span>He asked again. She refused again. <span class="verse-num">4</span>This happened seventeen times in a single afternoon. <span class="verse-num">5</span>The seventeenth refusal was delivered without looking up from her crossword. <span class="verse-num">6</span>This is the most powerful thing any human being has ever done.
+          </p>
+          <div class="rubric">
+            The Recipe exists. It is real. It has never been written down. It lives only in Meemaw's mind, alongside her opinions about Elvis and a number of classified personal memories. It will not be shared. It was never going to be shared. George knew this and yet.
+          </div>
+          <span class="folio-num">fol. II r°</span>
+        </div>
+
+        <div class="scripture-block">
+          <span class="scripture-label">Chapter the Third — The Meme Awakening</span>
+          <p class="scripture-text">
+            <span class="verse-num">1</span>In the fullness of time — the year being twenty-and-twenty-three — the Internet beheld S1E7 and <em>understood</em>. <span class="verse-num">2</span>CapCut editors of great skill took George's energy and made of it a sacrament. <span class="verse-num">3</span>The deep-fried aura meme spread across TikTok like smoke from a long-burning oak log. <span class="verse-num">4</span>Ten-hour loops were posted. People watched them. All of them. To the end. <span class="verse-num">5</span>No one could explain why. This is the nature of the brisket.
+          </p>
+          <span class="folio-num">fol. III r°</span>
+        </div>
+
+        <div class="scripture-block">
+          <span class="scripture-label">Chapter the Fourth — The Wattpad Prophecies</span>
+          <p class="scripture-text">
+            <span class="verse-num">1</span>Then came the Wattpad era. Fan-fiction authors, moved by a hunger they could not name, began to write. <span class="verse-num">2</span>In these texts — some reaching forty-seven chapters — a different George appears. <span class="verse-num">3</span>A George who looks at Sheldon and sees <em>tenderness</em>. Not emotional tenderness. <span class="verse-num">4</span>Brisket tenderness. <span class="verse-num">5</span>The Cooper family members are, in these texts, described using marinade terminology. <span class="verse-num">6</span>This is deeply, profoundly, and completely unhinged. <span class="verse-num">7</span>The lore cannot be stopped. It does not want to be stopped. It is smoking at 225°F and it has been doing so since 2017. <span class="verse-num">8</span>We are all inside the smoker now.
+          </p>
+          <div class="rubric">
+            And lo, they said: is Sheldon the brisket, or is the brisket Sheldon? And there was no answer. And they were at peace.
+          </div>
+          <span class="folio-num">fol. IV r°</span>
+        </div>
+
+      </div>
+
+      <!-- CANON -->
+      <div class="section-panel" id="panel-canon">
+        <div class="scripture-block">
+          <span class="scripture-label">Canonical Record — Verified</span>
+          <p class="scripture-text">
+            The following facts are drawn from the episode itself, which aired on the sixteenth of November, in the year of our Lord two-thousand-and-seventeen, and which changed everything.
+          </p>
+        </div>
+
+        <div class="dialogue-row">
+          <span class="speaker-tag">GEORGE COOPER</span>
+          <div class="dialogue-bubble">"Connie. I'm asking you one more time. What is in the rub?"</div>
+        </div>
+        <div class="dialogue-row">
+          <span class="speaker-tag">MEEMAW</span>
+          <div class="dialogue-bubble">"George." &nbsp;&nbsp; <em>[She does not look up.]</em> &nbsp;&nbsp; "No."</div>
+        </div>
+        <div class="dialogue-row">
+          <span class="speaker-tag">GEORGE COOPER</span>
+          <div class="dialogue-bubble"><em>[Stands very still for a long time. Leaves. Goes to the smoker. Stays there.]</em></div>
+        </div>
+        <div class="dialogue-row">
+          <span class="speaker-tag">THE SMOKER</span>
+          <div class="dialogue-bubble"><em>[No response. The smoker says nothing. The smoke speaks for it.]</em></div>
+        </div>
+
+        <div class="canon-grid">
+          <div class="canon-cell">
+            <span class="canon-cell-label">Episode</span>
+            <span class="canon-cell-val">S1 E7 — "A Brisket, Voodoo, and Cannonball Run"</span>
+          </div>
+          <div class="canon-cell">
+            <span class="canon-cell-label">Air Date</span>
+            <span class="canon-cell-val">November 16, 2017</span>
+          </div>
+          <div class="canon-cell">
+            <span class="canon-cell-label">Recipe Obtained</span>
+            <span class="canon-cell-val" style="color:#8b3a00;">No. Never. Not once.</span>
+          </div>
+          <div class="canon-cell">
+            <span class="canon-cell-label">George's Aura</span>
+            <span class="canon-cell-val" style="color:#c8860a;">Maximum. Eternal.</span>
+          </div>
+          <div class="canon-cell">
+            <span class="canon-cell-label">Brisket Status</span>
+            <span class="canon-cell-val">Still cooking. Has not finished cooking. Will not finish cooking.</span>
+          </div>
+          <div class="canon-cell">
+            <span class="canon-cell-label">Theological Weight</span>
+            <span class="canon-cell-val">Immeasurable.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRANSFORMATIONS -->
+      <div class="section-panel" id="panel-transformations">
+        <div class="scripture-block">
+          <span class="scripture-label">The Book of Transformations — Extended Non-Canon Lore</span>
+          <p class="scripture-text">
+            What follows is drawn from TikTok prophecy and Wattpad scripture. It has not been verified by CBS. It has been verified by the hunger.
+          </p>
+        </div>
+
+        <div class="transf-log">
+          <div class="transf-head">Log I — Sheldon Lee Cooper</div>
+          <p class="scripture-text">Sheldon enters the kitchen at 6:43 AM to explain the thermodynamics of convective heat in slow-combustion cooking environments. He speaks for eleven minutes without pausing. George turns around slowly. His eyes are far away. "Shelly," he says, quietly, with great tenderness and also great hunger, "you've been marinating in that science all morning, haven't you."</p>
+          <div class="rubric">Sheldon ran. He is still running. The science of running, he noted while running, involves kinetic energy. He did not share this with George.</div>
+          <div class="threat-meter">THREAT LEVEL: <strong>✦✦✦</strong> &nbsp; OUTCOME: <em>SHELDON ESCAPED (BARELY)</em></div>
+        </div>
+
+        <div class="transf-log">
+          <div class="transf-head">Log II — Mary Cooper, née Tucker</div>
+          <p class="scripture-text">George considers it for 0.2 seconds. Mary looks up from her Bible with an expression that has no name in any language. George immediately begins aggressively seasoning a pork shoulder he did not previously plan to season. The pork shoulder will be overworked. It will taste like fear.</p>
+          <div class="rubric">Some hungers are sacred. Some hungers are unwise. George Cooper is a man who understands this distinction.</div>
+          <div class="threat-meter">THREAT LEVEL: <strong>✦</strong> &nbsp; OUTCOME: <em>GEORGE STOOD DOWN IMMEDIATELY</em></div>
+        </div>
+
+        <div class="transf-log">
+          <div class="transf-head">Log III — Georgie Cooper (George Jr.)</div>
+          <p class="scripture-text">Georgie walks into the backyard wearing a brown suede jacket and eating a bag of corn chips. He says "whatcha cookin', Dad?" George looks at the jacket. He looks at the smoker. The jacket is the exact colour of rendered brisket at hour fourteen. Neither of them speak of this.</p>
+          <div class="rubric">Georgie sold the jacket. He does not know why. It felt right.</div>
+          <div class="threat-meter">THREAT LEVEL: <strong>✦✦✦✦</strong> &nbsp; OUTCOME: <em>CLASSIFIED BY BOTH PARTIES</em></div>
+        </div>
+
+        <div class="transf-log">
+          <div class="transf-head">Log IV — Missy Cooper</div>
+          <p class="scripture-text">Missy, nine years old and armed with perfect comedic timing, looks at her father standing motionless before the smoker at 3 AM and says, "Daddy, are you okay?" George says "I'm fine, baby." He is not fine. He is communing.</p>
+          <div class="rubric">She goes back to bed. She will remember this moment for the rest of her life. It is the most George she has ever seen him be.</div>
+          <div class="threat-meter">THREAT LEVEL: <strong>✦ (zero)</strong> &nbsp; OUTCOME: <em>TENDER. NOT IN THE BRISKET WAY.</em></div>
+        </div>
+      </div>
+
+      <!-- GEORGE -->
+      <div class="section-panel" id="panel-george">
+        <div class="scripture-block">
+          <span class="scripture-label">The Book of George — A Character Study</span>
+          <p class="scripture-text">
+            George Cooper is a man defined by reasonable amounts of quiet suffering and one completely unreasonable obsession with a cut of smoked meat. He is a good man. He is also absolutely unhinged about the brisket. These facts coexist peacefully.
+          </p>
+        </div>
+
+        <div class="george-stat-grid">
+          <div class="sacred-stat"><span class="stat-label">BRISKET ATTEMPTS</span><span class="stat-val">47</span></div>
+          <div class="sacred-stat"><span class="stat-label">SUCCESSES</span><span class="stat-val">47*</span></div>
+          <div class="sacred-stat"><span class="stat-label">MEEMAW'S RECIPE</span><span class="stat-val">0</span></div>
+          <div class="sacred-stat"><span class="stat-label">AURA LEVEL</span><span class="stat-val">MAX</span></div>
+        </div>
+
+        <div style="font-family:'IM Fell English',serif;font-size:13px;color:#a07030;text-align:center;margin-bottom:14px;font-style:italic;">
+          * They were all good. They were not Meemaw's. This distinction matters infinitely.
+        </div>
+
+        <div class="transf-log">
+          <div class="transf-head">Occupation</div>
+          <p class="scripture-text">Football coach. Father. Husband. Keeper of the Smoker. Seeker of the Recipe. Theologian of Meat (self-appointed).</p>
+        </div>
+        <div class="transf-log">
+          <div class="transf-head">Known Weaknesses</div>
+          <p class="scripture-text">Brisket. The memory of brisket. The <em>idea</em> of brisket. Meemaw's smug look when she refuses him. Sheldon's voice at 6 AM. Any brown jacket.</p>
+        </div>
+        <div class="transf-log">
+          <div class="transf-head">Known Strengths</div>
+          <p class="scripture-text">Extraordinary patience. An almost monastic relationship with the smoker. The ability to stand outside at 3 AM communicating silently with wood smoke. Being, fundamentally, a decent man who just really wants the recipe.</p>
+        </div>
+        <div class="transf-log">
+          <div class="transf-head">Battle Cry</div>
+          <p class="scripture-text">"Connie, I just need <em>one</em> ingredient." <span class="verse-num">†</span></p>
+          <div class="rubric">† — This was said nineteen times over the course of the episode. The nineteenth time, his voice cracked slightly. This is the most devastating moment in television history.</div>
+        </div>
+      </div>
+
+      <!-- TESTIMONY -->
+      <div class="section-panel" id="panel-testimony">
+        <div class="scripture-block">
+          <span class="scripture-label">Book of Testimonies — From the Congregation</span>
+          <p class="scripture-text">The following accounts were submitted by pilgrims of this shrine. They have been transcribed faithfully and without editorial judgment, which itself represents a significant act of restraint.</p>
+        </div>
+
+        <div class="post-entry">
+          <div class="post-head">TESTIMONY OF: brisket_truther_94 &nbsp;·&nbsp; received 3 days past</div>
+          <div class="post-body-inner">i watched s1e7 at 3am and i started crying. not because it was sad. because george was so <em>earnest</em>. he just wanted to know. don't we all just want to know. what is in the rub. what are any of us doing here.</div>
+          <div class="post-foot"><span>✦ 4,729 in agreement</span><span>891 replies</span></div>
+        </div>
+
+        <div class="post-entry">
+          <div class="post-head">TESTIMONY OF: meemaw_scholiast &nbsp;·&nbsp; received 1 week past</div>
+          <div class="post-body-inner">my thesis is that the brisket is not a brisket. it is the thing you cannot have. the knowledge that is withheld. meemaw is every gatekeeper. george is every seeker. the smoker is the long road. and yet also: the brisket is a brisket. a very good one. both things are true and that is the horror and the beauty of it.</div>
+          <div class="post-foot"><span>✦ 12,041 in agreement</span><span>2,209 replies</span></div>
+        </div>
+
+        <div class="post-entry">
+          <div class="post-head">TESTIMONY OF: georgie_survived_2024 &nbsp;·&nbsp; received 2 weeks past</div>
+          <div class="post-body-inner">i read all 47 chapters of the wattpad fic where george slowly perceives each family member as a cut of meat. i read it at work. my supervisor asked if i was okay. i said yes. i was not okay. sheldon was described as "beautifully marbled." i have not recovered. i do not want to recover.</div>
+          <div class="post-foot"><span>✦ 8,832 in agreement</span><span>1,100 replies</span></div>
+        </div>
+
+        <div class="post-entry">
+          <div class="post-head">TESTIMONY OF: anonymous pilgrim &nbsp;·&nbsp; received this morning</div>
+          <div class="post-body-inner">i made a brisket last saturday. it was good. it was not meemaw's brisket. i sat outside and thought about this for forty-five minutes. george was right to feel what he felt. i understand now. i am changed.</div>
+          <div class="post-foot"><span>✦ 21,004 in agreement</span><span>4,418 replies</span></div>
+        </div>
+      </div>
+
+      <!-- ABOUT / COLOPHON -->
+      <div class="section-panel" id="panel-about">
+        <div class="scripture-block">
+          <span class="scripture-label">Colophon — Notes on the Making of This Codex</span>
+          <p class="scripture-text">
+            <span class="illuminated-cap">T</span>his shrine was built by the internet, for the internet, in the manner of the great illuminated manuscripts — which is to say, with great care about irrelevant details and total indifference to practical utility. <span class="verse-num">2</span>We are not affiliated with CBS, Warner Bros., or Meemaw Tucker. <span class="verse-num">3</span>We do not have the recipe. <span class="verse-num">4</span>No one has the recipe. <span class="verse-num">5</span>Meemaw has the recipe. <span class="verse-num">6</span>Meemaw will not share the recipe. <span class="verse-num">7</span>This is, in a way, what makes it holy.
+          </p>
+          <div class="rubric">
+            If you came here looking for the recipe: we are sorry. Also, we understand. Also, George understands too. He is outside. He is at the smoker. He will be there all night.
+          </div>
+        </div>
+
+        <div class="scripture-block">
+          <span class="scripture-label">A Note on the Extended Lore</span>
+          <p class="scripture-text">
+            The transformation lore — wherein a hungry George begins to perceive his family as cuts of meat — is not canonical. It is not endorsed by this shrine, the state of Texas, or the Cooper family. It is, however, <em>inevitable</em>. The internet produces what the internet must produce. We have only documented it. We have done so with the reverence it deserves, which is: a measured amount.
+          </p>
+        </div>
+
+        <div class="scripture-block">
+          <span class="scripture-label">Technical Colophon</span>
+          <p class="scripture-text">
+            This page was typeset in IM Fell English (body), Cinzel (titling), and VT323 (digital relics). It has been validated against no standard in particular. It loads best on a device that feels slightly warm to the touch, at an hour you probably should not still be awake. The scanline texture is purely decorative. George would not have understood it. He did not need to.
+          </p>
+          <span class="folio-num">finis</span>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside class="sidebar-r">
+      <div class="section-title">Live Transmissions</div>
+
+      <div class="live-item"><em>brisket_truther</em> offered a prayer</div>
+      <div class="live-item">New folio posted to the Codex</div>
+      <div class="live-item">Meemaw still silent</div>
+      <div class="live-item"><em>anon pilgrim</em> made a brisket. Was changed.</div>
+      <div class="live-item">Smoke sighted over East Texas</div>
+      <div class="live-item"><em>georgie_fan</em> rated: ✦✦✦✦✦</div>
+      <div class="live-item">George at smoker · 3 AM</div>
+      <div class="live-item"><em>anon</em> claimed the recipe</div>
+      <div class="live-item">Claim dismissed as heresy</div>
+
+      <div class="ornament-div">— ✦ —</div>
+
+      <div class="section-title">Rate the Brisket</div>
+      <div class="rating-row">
+        <button class="rating-btn" onclick="doRate(1)" aria-label="Rate 1">✦</button>
+        <button class="rating-btn" onclick="doRate(2)" aria-label="Rate 2">✦</button>
+        <button class="rating-btn" onclick="doRate(3)" aria-label="Rate 3">✦</button>
+        <button class="rating-btn" onclick="doRate(4)" aria-label="Rate 4">✦</button>
+        <button class="rating-btn" onclick="doRate(5)" aria-label="Rate 5">✦</button>
+      </div>
+      <div style="font-family:'IM Fell English',serif;font-style:italic;font-size:12px;color:#a07030;text-align:center;" id="ratingTxt">5 of 5 — Meemaw Tier</div>
+
+      <div class="ornament-div">— ✦ —</div>
+
+      <div class="section-title">Aura Oracle</div>
+      <button class="holy-btn" onclick="doAura()">✦ CONSULT THE ORACLE ✦</button>
+      <div class="aura-display" id="auraOut"></div>
+
+      <div class="ornament-div">— ✦ —</div>
+
+      <div class="section-title">Pilgrim Number</div>
+      <div style="text-align:center;">
+        <span class="hit-counter-holy" id="myNum">00052</span><br>
+        <span style="font-family:'IM Fell English',serif;font-style:italic;font-size:12px;color:#a07030;display:block;margin-top:4px;">you are witnessed</span>
+      </div>
+
+      <div class="ornament-div">— ✦ —</div>
+
+      <div style="text-align:center;font-family:'IM Fell English',serif;font-size:13px;color:#7a4a10;line-height:1.9;font-style:italic;padding:4px 0;">
+        The smoke rises.<br>The recipe remains.<br>George endures.<br>
+        <span style="font-family:'Cinzel',serif;font-size:18px;color:#c8860a;font-style:normal;">✦</span>
+      </div>
+    </aside>
+
+  </div><!-- /.layout -->
+
+  <!-- FOOTER -->
+  <footer class="footer-holy">
+    ✦ &nbsp; Codex Brisketicus · Vol. I · Est. S1E7 MMXVII &nbsp; ✦<br>
+    <em>Transcribed in the year of our Lord by pilgrims of East Texas and the wider internet.</em><br>
+    <em>Meemaw's recipe remains classified. George remains at the smoker. The lore remains.</em>
+    <span class="f-mono">THIS SITE USES NO COOKIES. GEORGE ATE THEM. THEY WERE GOOD. NOT AS GOOD AS THE BRISKET.</span>
+  </footer>
+
+</div><!-- /.frame -->
+
+<script>
+  let prayers = 49;
+
+  const auras = [
+    "Thou art of the Smoker. George nods.",
+    "Thine aura is tender. Medium-tender. Rest ten minutes.",
+    "The oracle sees: thou hast never tasted Meemaw's brisket. Neither has George. Thou art kin.",
+    "Thy aura is: Maximum Yearning. This is the highest form.",
+    "The oracle detects brown suede. Do not approach George today.",
+    "Thou art not brisket. This is a mercy. And also: a shame.",
+    "Meemaw would trust thee with the recipe. She would not give it to thee. But she would trust thee.",
+    "Thy aura reads: East Texas, 3 AM, smoke on the wind. This is holy.",
+    "The oracle says: thou art fine. George says nothing. George is at the smoker.",
+  ];
+
+  const ratings = ["Heresy","Needs oak","Decent smoke","True form","Meemaw Tier"];
+
+  function showP(id) {
+    document.querySelectorAll('.section-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-bar a').forEach(a => a.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    document.getElementById('nav-' + id).classList.add('active');
+  }
+
+  function addPrayer() {
+    prayers++;
+    document.getElementById('prayerCount').textContent = prayers;
+  }
+
+  function doAura() {
+    document.getElementById('auraOut').textContent = auras[Math.floor(Math.random() * auras.length)];
+  }
+
+  function doRate(n) {
+    document.getElementById('ratingTxt').textContent = n + ' of 5 — ' + ratings[n - 1];
+  }
+
+  (function init() {
+    const ep = new Date('2017-11-16');
+    const d = Math.floor((new Date() - ep) / 864e5);
+    document.getElementById('daysSince').textContent = d.toLocaleString();
+
+    const v = Math.floor(Math.random() * 30) + 48;
+    document.getElementById('hitC').textContent = String(v).padStart(5, '0');
+    document.getElementById('myNum').textContent = String(v + 1).padStart(5, '0');
+  })();
+</script>
+
+
+<!-- ════════════════════════════════════════════════════
+     THE ARCADE APPENDIX — Brisket Night (Endless Mode)
+     ════════════════════════════════════════════════════ -->
+
+<style>
+  /* ── Arcade section wrapper ── */
+  .arcade-section {
+    background: #1a0800;
+    border-top: 3px double #c8860a;
+    padding: 0;
+  }
+
+  .arcade-header {
+    text-align: center;
+    padding: 18px 16px 10px;
+    background: #1a0800;
+    border-bottom: 1px solid #5a2800;
+  }
+  .arcade-header .a-eyebrow {
+    font-family: 'VT323', monospace;
+    font-size: 13px;
+    color: #7a4010;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+  }
+  .arcade-header .a-title {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #f0c96a;
+    letter-spacing: 2px;
+    margin: 4px 0;
+  }
+  .arcade-header .a-sub {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #7a4010;
+    line-height: 1.5;
+  }
+
+  /* ── Game container ── */
+  .game-wrap {
+    display: grid;
+    grid-template-columns: 140px 1fr 140px;
+    background: #0d0400;
+    border-top: 1px solid #3a1400;
+  }
+
+  .game-panel {
+    padding: 12px 10px;
+    border-right: 1px solid #3a1400;
+    background: #0d0400;
+    font-family: 'VT323', monospace;
+    color: #c8860a;
+  }
+  .game-panel-r {
+    padding: 12px 10px;
+    border-left: 1px solid #3a1400;
+    background: #0d0400;
+    font-family: 'VT323', monospace;
+    color: #c8860a;
+  }
+
+  .gp-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #5a2800;
+    text-transform: uppercase;
+    border-bottom: 1px solid #3a1400;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+  }
+
+  .gp-stat {
+    text-align: center;
+    border: 1px solid #3a1400;
+    background: #150800;
+    padding: 6px 4px;
+    margin-bottom: 6px;
+  }
+  .gp-stat-label {
+    font-size: 10px;
+    color: #5a2800;
+    letter-spacing: 2px;
+    display: block;
+  }
+  .gp-stat-val {
+    font-size: 26px;
+    color: #f0c96a;
+    display: block;
+    font-family: 'VT323', monospace;
+  }
+
+  .arcade-btn {
+    width: 100%;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #f0c96a;
+    background: #150800;
+    border: 1px solid #c8860a;
+    padding: 7px;
+    cursor: pointer;
+    font-weight: 700;
+    margin-top: 5px;
+    transition: background 0.1s;
+  }
+  .arcade-btn:hover { background: #3a1400; }
+  .arcade-btn.danger { border-color: #8b0000; color: #ff4444; }
+  .arcade-btn.danger:hover { background: #1a0000; }
+
+  /* ── Canvas area ── */
+  #gameArena {
+    position: relative;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  #brisketCanvas {
+    display: block;
+    image-rendering: pixelated;
+  }
+
+  /* ── Overlay screens ── */
+  .arena-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.93);
+    text-align: center;
+    padding: 20px;
+  }
+  .arena-overlay.hidden { display: none; }
+
+  .ov-title {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #f0c96a;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .ov-title.red { color: #ff2200; }
+  .ov-sub {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #7a4010;
+    line-height: 1.7;
+    margin-bottom: 14px;
+    max-width: 320px;
+  }
+  .ov-controls {
+    font-family: 'VT323', monospace;
+    font-size: 13px;
+    color: #5a2800;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    line-height: 1.8;
+  }
+
+  /* ── HUD bar inside canvas ── */
+  #arcadeHUD {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 10px;
+    background: rgba(0,0,0,0.85);
+    border-bottom: 1px solid #3a1400;
+    pointer-events: none;
+    font-family: 'VT323', monospace;
+    font-size: 13px;
+    color: #c8860a;
+    gap: 8px;
+  }
+  .hud-bar-mini {
+    height: 5px;
+    background: #0c0000;
+    border: 1px solid #2a0000;
+    overflow: hidden;
+    width: 70px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+  .hud-fill-mini { height: 100%; transition: width 0.1s; }
+
+  #arcadeMsg {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: #c8860a;
+    pointer-events: none;
+    white-space: nowrap;
+    text-shadow: 0 0 8px #000;
+  }
+
+  /* ── Leaderboard ── */
+  .leaderboard {
+    background: #0d0400;
+    border-top: 1px solid #3a1400;
+    padding: 10px 14px;
+  }
+  .lb-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'VT323', monospace;
+    font-size: 15px;
+    color: #7a4010;
+    border-bottom: 1px solid #1a0800;
+    padding: 3px 0;
+  }
+  .lb-row:first-child { color: #f0c96a; }
+  .lb-row:nth-child(2) { color: #c8860a; }
+  .lb-row .lb-name { color: inherit; }
+  .lb-row .lb-score { color: inherit; font-weight: bold; }
+
+  /* ── Arcade footer ── */
+  .arcade-footer {
+    background: #0d0400;
+    border-top: 1px solid #3a1400;
+    padding: 8px 16px;
+    text-align: center;
+    font-family: 'VT323', monospace;
+    font-size: 13px;
+    color: #3a1400;
+    letter-spacing: 2px;
+  }
+</style>
+
+<div class="arcade-section">
+
+  <div class="arcade-header">
+    <div class="a-eyebrow">Appendix VII &nbsp;·&nbsp; Interactive Relic</div>
+    <div class="a-title">Brisket Night — The Arcade Appendix</div>
+    <div class="a-sub">
+      A most heretical and beloved mini-game, appended to the Codex.<br>
+      Survive as long as thou canst. George grows faster with time.
+    </div>
+  </div>
+
+  <div class="game-wrap">
+
+    <!-- LEFT PANEL -->
+    <div class="game-panel">
+      <div class="gp-label">Vital Signs</div>
+
+      <div class="gp-stat">
+        <span class="gp-stat-label">HEALTH</span>
+        <span class="gp-stat-val" id="g-health">100</span>
+        <div class="hud-bar-mini" style="width:100%;margin:0;"><div class="hud-fill-mini" id="g-hfill" style="width:100%;background:linear-gradient(90deg,#660000,#ff3300);"></div></div>
+      </div>
+
+      <div class="gp-stat">
+        <span class="gp-stat-label">STAMINA</span>
+        <span class="gp-stat-val" id="g-stam">100</span>
+        <div class="hud-bar-mini" style="width:100%;margin:0;"><div class="hud-fill-mini" id="g-sfill" style="width:100%;background:linear-gradient(90deg,#003366,#0088ff);"></div></div>
+      </div>
+
+      <div class="gp-stat">
+        <span class="gp-stat-label">SURVIVED</span>
+        <span class="gp-stat-val" id="g-time">0:00</span>
+      </div>
+
+      <div style="height:1px;background:#3a1400;margin:8px 0;"></div>
+      <div class="gp-label">Skills</div>
+
+      <div style="font-size:12px;color:#5a2800;line-height:1.8;margin-bottom:6px;">
+        <span id="sk1-status" style="color:#c8860a;">[1] SLOW</span><br>
+        <span id="sk2-status" style="color:#c8860a;">[2] DECOY</span>
+      </div>
+
+      <button class="arcade-btn" id="btnStartGame" onclick="arcadeStart()">✦ BEGIN NIGHT ✦</button>
+    </div>
+
+    <!-- CANVAS -->
+    <div id="gameArena">
+      <canvas id="brisketCanvas"></canvas>
+
+      <div id="arcadeHUD" style="display:none;">
+        <span>HEALTH <div class="hud-bar-mini"><div class="hud-fill-mini" id="h-hf" style="width:100%;background:#cc0000;"></div></div></span>
+        <span id="h-score" style="color:#f0c96a;font-size:15px;">0 pts</span>
+        <span>STAMINA <div class="hud-bar-mini"><div class="hud-fill-mini" id="h-sf" style="width:100%;background:#0088ff;"></div></div></span>
+      </div>
+
+      <div id="arcadeMsg"></div>
+
+      <!-- START screen -->
+      <div class="arena-overlay" id="ov-start">
+        <div class="ov-title">✦ Brisket Night ✦</div>
+        <div class="ov-sub">
+          Thou art Sheldon Cooper, age 9.<br>
+          George is hungry. The smoker is hot.<br>
+          <em style="color:#c8860a;">Survive as long as thou art able.</em>
+        </div>
+        <div class="ov-controls">
+          WASD / ARROWS — Move &nbsp;·&nbsp; SHIFT — Sprint<br>
+          [1] Hyper-Focus (slows George) &nbsp;·&nbsp; [2] Drop Decoy
+        </div>
+        <button class="arcade-btn" style="max-width:200px;" onclick="arcadeStart()">✦ BEGIN ✦</button>
+      </div>
+
+      <!-- DEATH screen -->
+      <div class="arena-overlay hidden" id="ov-death">
+        <div class="ov-title red" id="ov-death-title">THOU ART BRISKET</div>
+        <div class="ov-sub" id="ov-death-sub"></div>
+        <div style="font-family:'VT323',monospace;font-size:22px;color:#f0c96a;margin-bottom:10px;" id="ov-death-score"></div>
+        <button class="arcade-btn" style="max-width:200px;" onclick="arcadeStart()">↺ TRY AGAIN</button>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="game-panel-r">
+      <div class="gp-label">Score</div>
+
+      <div class="gp-stat">
+        <span class="gp-stat-label">CURRENT</span>
+        <span class="gp-stat-val" id="g-score">0</span>
+      </div>
+
+      <div class="gp-stat">
+        <span class="gp-stat-label">BEST</span>
+        <span class="gp-stat-val" id="g-best">0</span>
+      </div>
+
+      <div class="gp-stat">
+        <span class="gp-stat-label">RANK</span>
+        <span class="gp-stat-val" id="g-rank" style="font-size:14px;">—</span>
+      </div>
+
+      <div style="height:1px;background:#3a1400;margin:8px 0;"></div>
+      <div class="gp-label">George Says</div>
+      <div id="george-says" style="font-size:14px;color:#ff4400;line-height:1.7;min-height:40px;font-family:'IM Fell English',serif;font-style:italic;">
+        ...
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- LEADERBOARD -->
+  <div class="leaderboard">
+    <div class="gp-label" style="margin-bottom:8px;">Hall of Survivors — High Scores</div>
+    <div id="leaderboard-list">
+      <div class="lb-row"><span class="lb-name">✦ meemaw_scholiast</span><span class="lb-score">3,840 pts</span></div>
+      <div class="lb-row"><span class="lb-name">brisket_truther_94</span><span class="lb-score">2,210 pts</span></div>
+      <div class="lb-row"><span class="lb-name">georgie_survived</span><span class="lb-score">1,770 pts</span></div>
+      <div class="lb-row"><span class="lb-name">anonymous pilgrim</span><span class="lb-score">990 pts</span></div>
+      <div class="lb-row"><span class="lb-name">sheldon_cooper_iq187</span><span class="lb-score">44 pts</span></div>
+    </div>
+  </div>
+
+  <div class="arcade-footer">
+    CONTROLS: WASD / ARROWS — MOVE &nbsp;·&nbsp; SHIFT — SPRINT &nbsp;·&nbsp; [1] SLOW TIME &nbsp;·&nbsp; [2] DROP DECOY &nbsp;·&nbsp; GAME MUST BE FOCUSED (CLICK CANVAS)
+  </div>
+
+</div>
+
+
+<script>
+(function() {
+'use strict';
+
+// ── Config ──────────────────────────────────────────────
+const T = 36;          // tile size px
+const COLS = 18, ROWS = 13;
+const CANVAS_W = COLS * T;   // 648
+const CANVAS_H = ROWS * T;   // 468
+const DISPLAY_SCALE = 1;
+
+// ── Map ─────────────────────────────────────────────────
+const MAP = [
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+  [1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1],
+  [1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1],
+  [1,1,1,0,1,1,1,1,0,1,1,1,1,0,1,1,1,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,1,1,1,0,1,1,1,0,1,1,1,0,0,1],
+  [1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1],
+  [1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1],
+  [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+  [1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1],
+  [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+];
+
+// ── State ───────────────────────────────────────────────
+let G = null;       // game state
+let raf = null;
+let lastTs = null;
+let bestScore = 0;
+let running = false;
+
+const george_lines = [
+  "Shelly…","DINNER.","Come out, son.","BRISKET.","I see you.","225°F, Moonpie.","Get over here.","I know where you are.","It's time.","SHELLY!"
+];
+let georgeSayTimer = 0;
+
+const deathLines = [
+  ["BRISKET TIME, SHELLY!", "George found you behind the bookshelf.\nYou tasted like disappointment and genius."],
+  ["GET OVER HERE, MOONPIE!", "Mary blessed the brisket.\nIt was Sheldon."],
+  ["IT'S DINNER, SON!", "Georgie rated thee 4 stars.\nMissy wept."],
+  ["225 DEGREES.", "Perfect temperature.\nFor brisket."],
+  ["I FOUND YOUR SPOT.", "Sheldon had calculated a 0% escape probability.\nHe was, as always, correct."],
+];
+
+const ranks = [
+  [0,     '— Unmarinated'],
+  [200,   'Raw (Uncured)'],
+  [500,   'Lightly Smoked'],
+  [1000,  'Medium Brisket'],
+  [2000,  'Well-Rested'],
+  [3500,  'Meemaw Tier'],
+  [5000,  '✦ SAINT OF SMOKE ✦'],
+];
+
+function getRank(score) {
+  let r = ranks[0][1];
+  for (const [min, label] of ranks) { if (score >= min) r = label; }
+  return r;
+}
+
+// ── Canvas setup ────────────────────────────────────────
+const canvas = document.getElementById('brisketCanvas');
+const ctx = canvas.getContext('2d');
+const arena = document.getElementById('gameArena');
+
+function resizeCanvas() {
+  const aW = arena.clientWidth;
+  const aH = Math.max(340, Math.min(520, aW * 0.72));
+  arena.style.height = aH + 'px';
+  canvas.width = CANVAS_W;
+  canvas.height = CANVAS_H;
+  canvas.style.width  = Math.min(aW, aH / CANVAS_H * CANVAS_W) + 'px';
+  canvas.style.height = Math.min(aH, aW / CANVAS_W * CANVAS_H) + 'px';
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+// ── Collision ───────────────────────────────────────────
+function solid(wx, wy) {
+  const c = Math.floor(wx / T), r = Math.floor(wy / T);
+  if (c < 0 || r < 0 || c >= COLS || r >= ROWS) return true;
+  return MAP[r][c] === 1;
+}
+function moveEnt(e, dx, dy) {
+  const pad = 5, hw = e.w / 2, hh = e.h / 2;
+  const nx = e.x + dx, ny = e.y + dy;
+  const ok = (x, y) => !solid(x-hw+pad,y-hh+pad) && !solid(x+hw-pad,y-hh+pad)
+                      && !solid(x-hw+pad,y+hh-pad) && !solid(x+hw-pad,y+hh-pad);
+  if (ok(nx, ny))      { e.x = nx; e.y = ny; }
+  else if (ok(nx, e.y)){ e.x = nx; }
+  else if (ok(e.x, ny)){ e.y = ny; }
+}
+
+// ── Init / Start ─────────────────────────────────────────
+function arcadeStart() {
+  document.getElementById('ov-start').classList.add('hidden');
+  document.getElementById('ov-death').classList.add('hidden');
+  document.getElementById('arcadeHUD').style.display = 'flex';
+  document.getElementById('btnStartGame').textContent = '↺ RESTART';
+
+  G = {
+    elapsed: 0,
+    score: 0,
+    dead: false,
+    // Player
+    px: 3*T+T/2, py: 3*T+T/2,
+    pw: 13, ph: 18,
+    health: 100, stamina: 100,
+    stepPhase: 0, facing: 1,
+    // George
+    gx: 14*T+T/2, gy: 9*T+T/2,
+    gspeed: 0.65,
+    // Skills
+    sk1cd: 0, sk1active: false, sk1timer: 0,
+    sk2cd: 0, decoyPos: null, decoyTimer: 0,
+    // Collectibles
+    items: [
+      { x: 9*T+T/2, y: 2*T+T/2, id: 'bread',  ico: '🍞', label: 'Bread Loaf', val: 150, col: false },
+      { x: 2*T+T/2, y: 10*T+T/2, id: 'bible', ico: '📖', label: "Mary's Bible", val: 200, col: false },
+      { x: 15*T+T/2,y: 5*T+T/2, id: 'phone',  ico: '☎',  label: 'Phone',      val: 120, col: false },
+      { x: 6*T+T/2, y: 8*T+T/2, id: 'trophy', ico: '🏆',  label: 'Trophy',     val: 300, col: false },
+    ],
+    // Input
+    keys: {},
+    // Messages
+    msg: '', msgT: 0,
+    // Slow-mo
+    slowMo: false,
+    // Fear proximity
+    fear: 0,
+  };
+
+  // Attach key listeners to window (scoped)
+  running = true;
+  lastTs = null;
+  cancelAnimationFrame(raf);
+  raf = requestAnimationFrame(gameLoop);
+  setMsg('Survive, Moonpie. Survive.', 2500);
+}
+window.arcadeStart = arcadeStart;
+
+// ── Game Loop ────────────────────────────────────────────
+function gameLoop(ts) {
+  if (!running || !G) return;
+  const rawDt = lastTs ? Math.min(ts - lastTs, 50) : 16;
+  lastTs = ts;
+  const dt = rawDt * (G.slowMo ? 0.32 : 1.0);
+
+  G.elapsed += dt;
+  // Score: 1pt per 50ms survived + bonus from pickups
+  G.score = Math.floor(G.elapsed / 50) + (G.scoreBonus || 0);
+
+  // Timers
+  if (G.sk1timer > 0) { G.sk1timer -= rawDt; if (G.sk1timer <= 0) { G.slowMo = false; G.sk1active = false; } }
+  if (G.sk1cd > 0) G.sk1cd -= rawDt;
+  if (G.sk2cd > 0) G.sk2cd -= rawDt;
+  if (G.decoyTimer > 0) { G.decoyTimer -= rawDt; if (G.decoyTimer <= 0) G.decoyPos = null; }
+  if (G.msgT > 0) { G.msgT -= rawDt; if (G.msgT <= 0) G.msg = ''; }
+  georgeSayTimer -= rawDt;
+  if (georgeSayTimer <= 0) {
+    georgeSayTimer = 2800 + Math.random() * 2000;
+    const line = george_lines[Math.floor(Math.random() * george_lines.length)];
+    document.getElementById('george-says').textContent = '"' + line + '"';
+  }
+
+  updatePlayer(dt, rawDt);
+  updateGeorge(dt);
+  checkItems();
+
+  draw();
+  updateSideHUD();
+
+  if (!G.dead) raf = requestAnimationFrame(gameLoop);
+}
+
+// ── Player ───────────────────────────────────────────────
+function updatePlayer(dt, rawDt) {
+  const k = G.keys;
+  let dx = 0, dy = 0;
+  if (k['a']||k['A']||k['ArrowLeft'])  dx -= 1;
+  if (k['d']||k['D']||k['ArrowRight']) dx += 1;
+  if (k['w']||k['W']||k['ArrowUp'])    dy -= 1;
+  if (k['s']||k['S']||k['ArrowDown'])  dy += 1;
+  if (dx && dy) { dx *= 0.707; dy *= 0.707; }
+  if (dx !== 0) G.facing = dx > 0 ? 1 : -1;
+
+  const shifting = k['Shift'] || k['ShiftLeft'] || k['ShiftRight'];
+  let spd = 1.9;
+  let sprinting = false;
+  if (shifting && G.stamina > 5 && (dx || dy)) {
+    spd = 3.0; G.stamina = Math.max(0, G.stamina - dt * 0.09); sprinting = true;
+  }
+  if (!sprinting) G.stamina = Math.min(100, G.stamina + dt * 0.028);
+  if (dx || dy) G.stepPhase += dt * 0.012 * (sprinting ? 1.5 : 1);
+
+  const e = { x: G.px, y: G.py, w: G.pw, h: G.ph };
+  moveEnt(e, dx * spd, dy * spd);
+  G.px = e.x; G.py = e.y;
+}
+
+// ── George ────────────────────────────────────────────────
+function updateGeorge(dt) {
+  // George speeds up over time
+  const timeRatio = Math.min(1, G.elapsed / 120000);
+  const spd = G.gspeed * (1 + timeRatio * 1.2) * (G.decoyPos ? 0.6 : 1);
+
+  let tx = G.px, ty = G.py;
+  if (G.decoyPos && G.decoyTimer > 0) { tx = G.decoyPos.x; ty = G.decoyPos.y; }
+
+  const tdx = tx - G.gx, tdy = ty - G.gy;
+  const td = Math.sqrt(tdx * tdx + tdy * tdy);
+
+  if (td > 6) {
+    const e = { x: G.gx, y: G.gy, w: 20, h: 26 };
+    moveEnt(e, (tdx/td) * spd, (tdy/td) * spd);
+    G.gx = e.x; G.gy = e.y;
+  }
+
+  const pdx = G.px - G.gx, pdy = G.py - G.gy;
+  const dist = Math.sqrt(pdx*pdx + pdy*pdy);
+
+  if (dist < 18) { triggerDeath(); return; }
+
+  // Health drain by proximity
+  if (dist < 150) {
+    G.health = Math.max(0, G.health - dt * 0.02 * (1 - dist/150));
+    G.fear = Math.min(100, G.fear + dt * 0.04);
+  } else {
+    G.health = Math.min(100, G.health + dt * 0.004);
+    G.fear = Math.max(0, G.fear - dt * 0.01);
+  }
+  if (G.health <= 0) triggerDeath();
+}
+
+// ── Items ─────────────────────────────────────────────────
+function checkItems() {
+  for (const item of G.items) {
+    if (item.col) continue;
+    const dx = G.px - item.x, dy = G.py - item.y;
+    if (Math.sqrt(dx*dx+dy*dy) < 26) {
+      item.col = true;
+      G.scoreBonus = (G.scoreBonus || 0) + item.val;
+      setMsg('+' + item.val + ' pts — ' + item.label + ' collected!', 2000);
+      // Respawn item at a new location after 12s
+      const freeTiles = [];
+      for (let r=1;r<ROWS-1;r++) for (let c=1;c<COLS-1;c++) if(MAP[r][c]===0) freeTiles.push([c,r]);
+      setTimeout(() => {
+        const [fc, fr] = freeTiles[Math.floor(Math.random()*freeTiles.length)];
+        item.x = fc*T+T/2; item.y = fr*T+T/2; item.col = false;
+      }, 12000 + Math.random()*4000);
+    }
+  }
+}
+
+// ── Skills ────────────────────────────────────────────────
+function useSkill(n) {
+  if (!G || G.dead) return;
+  if (n === 1) {
+    if (G.sk1cd > 100) { setMsg('Hyper-Focus — ' + Math.ceil(G.sk1cd/1000) + 's', 1000); return; }
+    G.sk1cd = 15000; G.sk1active = true; G.sk1timer = 3000; G.slowMo = true;
+    setMsg('✦ Hyper-Focus — time slows.', 2500);
+  }
+  if (n === 2) {
+    if (G.sk2cd > 100) { setMsg('Decoy — ' + Math.ceil(G.sk2cd/1000) + 's', 1000); return; }
+    G.sk2cd = 10000;
+    const ang = Math.random() * Math.PI * 2;
+    G.decoyPos = { x: G.px + Math.cos(ang)*80, y: G.py + Math.sin(ang)*80 };
+    G.decoyTimer = 5000;
+    setMsg('✦ Bait dropped — George investigates.', 2500);
+  }
+}
+
+// ── Death ─────────────────────────────────────────────────
+function triggerDeath() {
+  if (!G || G.dead) return;
+  G.dead = true; running = false;
+  const final = G.score;
+  if (final > bestScore) {
+    bestScore = final;
+    document.getElementById('g-best').textContent = bestScore;
+    updateLeaderboard(final);
+  }
+  const [t, s] = deathLines[Math.floor(Math.random() * deathLines.length)];
+  document.getElementById('ov-death-title').textContent = t;
+  document.getElementById('ov-death-sub').textContent = s.replace(/\n/g,' — ');
+  document.getElementById('ov-death-score').textContent = final + ' pts — ' + getRank(final);
+  document.getElementById('arcadeHUD').style.display = 'none';
+  document.getElementById('ov-death').classList.remove('hidden');
+  // Draw one last frame
+  draw();
+}
+
+function updateLeaderboard(score) {
+  const el = document.getElementById('leaderboard-list');
+  const existing = Array.from(el.querySelectorAll('.lb-row')).map(r => ({
+    name: r.querySelector('.lb-name').textContent,
+    score: parseInt(r.querySelector('.lb-score').textContent.replace(/[^0-9]/g,''))
+  }));
+  existing.push({ name: 'Sheldon (you)', score });
+  existing.sort((a,b) => b.score - a.score);
+  el.innerHTML = existing.slice(0,5).map((e,i) => `
+    <div class="lb-row">
+      <span class="lb-name">${i===0?'✦ ':''}${e.name}</span>
+      <span class="lb-score">${e.score.toLocaleString()} pts</span>
+    </div>`).join('');
+}
+
+// ── Side HUD update ───────────────────────────────────────
+function updateSideHUD() {
+  if (!G) return;
+  const hpct = G.health.toFixed(0);
+  const spct = G.stamina.toFixed(0);
+  document.getElementById('g-health').textContent = hpct;
+  document.getElementById('g-stam').textContent = spct;
+  document.getElementById('g-hfill').style.width = hpct + '%';
+  document.getElementById('g-sfill').style.width = spct + '%';
+  document.getElementById('h-hf').style.width = hpct + '%';
+  document.getElementById('h-sf').style.width = spct + '%';
+  const secs = Math.floor(G.elapsed/1000);
+  document.getElementById('g-time').textContent = Math.floor(secs/60) + ':' + String(secs%60).padStart(2,'0');
+  document.getElementById('g-score').textContent = G.score;
+  document.getElementById('g-rank').textContent = getRank(G.score);
+  document.getElementById('h-score').textContent = G.score + ' pts';
+  // Skill status
+  document.getElementById('sk1-status').textContent = G.sk1cd > 100 ? `[1] SLOW — ${Math.ceil(G.sk1cd/1000)}s` : '[1] SLOW — ready';
+  document.getElementById('sk1-status').style.color = G.sk1cd > 100 ? '#5a2800' : '#c8860a';
+  document.getElementById('sk2-status').textContent = G.sk2cd > 100 ? `[2] DECOY — ${Math.ceil(G.sk2cd/1000)}s` : '[2] DECOY — ready';
+  document.getElementById('sk2-status').style.color = G.sk2cd > 100 ? '#5a2800' : '#c8860a';
+  // Canvas msg
+  document.getElementById('arcadeMsg').textContent = G.msg;
+}
+
+function setMsg(txt, dur) { if(G){G.msg = txt; G.msgT = dur;} }
+
+// ── Draw ──────────────────────────────────────────────────
+function draw() {
+  if (!G) return;
+  ctx.clearRect(0, 0, CANVAS_W, CANVAS_H);
+
+  // Camera — follow player
+  const camX = Math.max(0, Math.min(COLS*T - CANVAS_W, G.px - CANVAS_W/2));
+  const camY = Math.max(0, Math.min(ROWS*T - CANVAS_H, G.py - CANVAS_H/2));
+
+  ctx.save();
+  ctx.translate(-camX, -camY);
+
+  // Tiles
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      const tx = c*T, ty = r*T;
+      if (tx+T<camX||tx>camX+CANVAS_W||ty+T<camY||ty>camY+CANVAS_H) continue;
+      if (MAP[r][c] === 1) drawWall(ctx, tx, ty);
+      else drawFloor(ctx, tx, ty, r, c);
+    }
+  }
+
+  // Items
+  for (const item of G.items) {
+    if (item.col) continue;
+    const pulse = 0.5 + 0.3*Math.sin(Date.now()*0.005 + item.x*0.01);
+    ctx.fillStyle = `rgba(255,200,80,${pulse*0.35})`;
+    ctx.beginPath(); ctx.arc(item.x, item.y, 18, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = 'rgba(20,10,0,0.85)';
+    ctx.beginPath(); ctx.arc(item.x, item.y, 11, 0, Math.PI*2); ctx.fill();
+    ctx.strokeStyle = `rgba(200,140,30,${pulse*0.9})`;
+    ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(item.x, item.y, 11, 0, Math.PI*2); ctx.stroke();
+    ctx.font = '12px serif'; ctx.textAlign = 'center';
+    ctx.fillStyle = 'rgba(255,255,255,0.9)';
+    ctx.fillText(item.ico, item.x, item.y + 4);
+  }
+
+  // Decoy
+  if (G.decoyPos && G.decoyTimer > 0) {
+    const p = 0.4 + 0.3*Math.sin(Date.now()*0.015);
+    ctx.fillStyle = `rgba(255,80,0,${p*0.6})`;
+    ctx.beginPath(); ctx.arc(G.decoyPos.x, G.decoyPos.y, 8+p*5, 0, Math.PI*2); ctx.fill();
+    ctx.font = '14px serif'; ctx.textAlign = 'center';
+    ctx.fillText('🍖', G.decoyPos.x, G.decoyPos.y+5);
+  }
+
+  // Slow-mo overlay
+  if (G.slowMo) {
+    ctx.fillStyle = 'rgba(0,20,60,0.06)'; ctx.fillRect(camX, camY, CANVAS_W, CANVAS_H);
+  }
+
+  // George aura
+  const gdx = G.px-G.gx, gdy = G.py-G.gy;
+  const gDist = Math.sqrt(gdx*gdx+gdy*gdy);
+  if (gDist < 160) {
+    const ag = ctx.createRadialGradient(G.gx,G.gy,0,G.gx,G.gy,90);
+    const alpha = Math.min(0.22,(160-gDist)/160*0.22);
+    ag.addColorStop(0,`rgba(180,10,0,${alpha})`);
+    ag.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=ag; ctx.beginPath(); ctx.arc(G.gx,G.gy,90,0,Math.PI*2); ctx.fill();
+  }
+
+  // Characters
+  drawSheldon(ctx, G.px, G.py, G.stepPhase, G.facing);
+  drawGeorge(ctx, G.gx, G.gy);
+
+  // Danger arrow
+  if (gDist > 40 && gDist < 200) {
+    const ang = Math.atan2(G.gy-G.py, G.gx-G.px);
+    const ax = G.px+Math.cos(ang)*38, ay = G.py+Math.sin(ang)*38;
+    const alpha = Math.max(0,(1-gDist/200)*0.75);
+    ctx.save(); ctx.translate(ax,ay); ctx.rotate(ang);
+    ctx.fillStyle=`rgba(200,20,0,${alpha})`;
+    ctx.beginPath(); ctx.moveTo(10,0); ctx.lineTo(-5,-5); ctx.lineTo(-5,5); ctx.closePath(); ctx.fill();
+    ctx.restore();
+  }
+
+  ctx.restore();
+
+  // Vignette
+  const vig = ctx.createRadialGradient(CANVAS_W/2,CANVAS_H/2,CANVAS_H*0.15,CANVAS_W/2,CANVAS_H/2,CANVAS_H*0.8);
+  vig.addColorStop(0,'rgba(0,0,0,0)');
+  vig.addColorStop(1,`rgba(0,0,0,${0.55 + G.fear*0.003})`);
+  ctx.fillStyle=vig; ctx.fillRect(0,0,CANVAS_W,CANVAS_H);
+
+  // Fear tint
+  if (G.fear > 50) {
+    ctx.fillStyle=`rgba(40,0,0,${(G.fear-50)/50*0.1})`; ctx.fillRect(0,0,CANVAS_W,CANVAS_H);
+  }
+}
+
+function drawWall(ctx, tx, ty) {
+  ctx.fillStyle = '#110800';
+  ctx.fillRect(tx, ty, T, T);
+  ctx.strokeStyle = 'rgba(60,24,6,0.3)';
+  ctx.lineWidth = 0.5;
+  // Brick lines
+  for (let by = ty; by < ty+T; by += 10) {
+    ctx.beginPath(); ctx.moveTo(tx, by); ctx.lineTo(tx+T, by); ctx.stroke();
+  }
+  for (let bx = tx; bx < tx+T; bx += T/2) {
+    ctx.beginPath(); ctx.moveTo(bx, ty); ctx.lineTo(bx, ty+T); ctx.stroke();
+  }
+  ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.fillRect(tx, ty+T-3, T, 3);
+}
+
+function drawFloor(ctx, tx, ty, r, c) {
+  ctx.fillStyle = '#0f0600';
+  ctx.fillRect(tx, ty, T, T);
+  ctx.strokeStyle = 'rgba(40,16,4,0.25)'; ctx.lineWidth = 0.5;
+  ctx.beginPath(); ctx.moveTo(tx, ty+T/2); ctx.lineTo(tx+T, ty+T/2); ctx.stroke();
+  if ((r+c)%2===0) {
+    ctx.strokeStyle = 'rgba(50,20,5,0.12)';
+    ctx.beginPath(); ctx.moveTo(tx+T*0.35,ty); ctx.lineTo(tx+T*0.35,ty+T); ctx.stroke();
+  }
+}
+
+function drawSheldon(ctx, x, y, step, facing) {
+  ctx.save();
+  ctx.translate(x, y);
+  if (facing < 0) ctx.scale(-1,1);
+  ctx.translate(-9,-20);
+  const bob = Math.sin(step)*1.2;
+  const legA = Math.sin(step)*8;
+  const sc = 0.78; ctx.scale(sc,sc);
+
+  // Shadow
+  ctx.fillStyle='rgba(0,0,0,0.25)';
+  ctx.beginPath();ctx.ellipse(10,42,10,3,0,0,Math.PI*2);ctx.fill();
+
+  // Legs
+  for(const [ox,dir] of [[4,1],[16,-1]]){
+    ctx.save();ctx.translate(ox,28+bob);ctx.rotate(legA*dir*Math.PI/180);
+    ctx.fillStyle='#b88d42';ctx.fillRect(-4,0,8,16);
+    ctx.fillStyle='#9a7030';ctx.fillRect(-4,14,8,3);
+    // Shoe
+    ctx.fillStyle='#1a0e04';ctx.beginPath();ctx.ellipse(0,20,5,3,0,0,Math.PI*2);ctx.fill();
+    ctx.restore();
+  }
+  // Belt
+  ctx.fillStyle='#1e0c00';ctx.fillRect(1,27,18,3);
+  // Shirt
+  const sh=ctx.createLinearGradient(-2,6,22,26);
+  sh.addColorStop(0,'#3c6aaa');sh.addColorStop(1,'#233f70');
+  ctx.fillStyle=sh;ctx.fillRect(1,6+bob,18,20);
+  // Plaid
+  ctx.strokeStyle='rgba(20,55,20,0.35)';ctx.lineWidth=1.5;
+  for(let px=1;px<=19;px+=5){ctx.beginPath();ctx.moveTo(px,6+bob);ctx.lineTo(px,26+bob);ctx.stroke();}
+  // Arms
+  for(const [ox,dir] of [[0,1],[14,-1]]){
+    ctx.save();ctx.translate(ox,8+bob);ctx.rotate(Math.sin(step+Math.PI)*6*dir*Math.PI/180);
+    ctx.fillStyle='#3c6aaa';ctx.fillRect(-3,0,7,12);
+    ctx.fillStyle='#c8a060';ctx.fillRect(-3,11,6,4);
+    ctx.restore();
+  }
+  // Neck
+  ctx.fillStyle='#c8a060';ctx.fillRect(7,2+bob,6,6);
+  // Head
+  const hfg=ctx.createRadialGradient(10,bob-10,1,10,bob-4,14);
+  hfg.addColorStop(0,'#dfc080');hfg.addColorStop(1,'#aa7838');
+  ctx.fillStyle=hfg;ctx.beginPath();ctx.ellipse(10,bob-3,11,13,0,0,Math.PI*2);ctx.fill();
+  // Hair
+  ctx.fillStyle='#221000';
+  ctx.beginPath();ctx.ellipse(10,bob-13,11,7,0,Math.PI,Math.PI*2);ctx.fill();
+  ctx.fillRect(-1,bob-13,5,8);ctx.fillRect(16,bob-13,5,8);
+  // Eyes
+  ctx.fillStyle='#f0e8dc';
+  ctx.beginPath();ctx.ellipse(6,bob-1,4.5,4.5,0,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(14,bob-1,4.5,4.5,0,0,Math.PI*2);ctx.fill();
+  // Irises
+  for(const ex of [6,14]){
+    ctx.fillStyle='#162e80';ctx.beginPath();ctx.arc(ex,bob-1,3,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#010208';ctx.beginPath();ctx.arc(ex,bob-1,1.5,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='rgba(255,255,255,0.9)';ctx.beginPath();ctx.arc(ex-0.8,bob-2.2,0.9,0,Math.PI*2);ctx.fill();
+  }
+  // Glasses
+  ctx.strokeStyle='rgba(40,18,4,0.85)';ctx.lineWidth=1;
+  ctx.beginPath();ctx.rect(1,bob-5.5,9,8);ctx.stroke();
+  ctx.beginPath();ctx.rect(10,bob-5.5,9,8);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(10,bob-1);ctx.lineTo(11,bob-1);ctx.stroke();
+  ctx.restore();
+}
+
+function drawGeorge(ctx, x, y) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.translate(-11,-24);
+  const t = Date.now()*0.003;
+  const walkA = Math.sin(t*2)*11;
+  const sc = 0.94; ctx.scale(sc,sc);
+
+  // Shadow
+  ctx.fillStyle='rgba(0,0,0,0.35)';
+  ctx.beginPath();ctx.ellipse(12,48,13,4,0,0,Math.PI*2);ctx.fill();
+
+  // Legs
+  for(const [ox,dir] of [[4,1],[18,-1]]){
+    ctx.save();ctx.translate(ox,30);ctx.rotate(walkA*dir*Math.PI/180);
+    ctx.fillStyle='#2a4470';ctx.fillRect(-5,0,10,18);
+    ctx.fillStyle='#1a0e08';ctx.beginPath();ctx.ellipse(0,22,5.5,4,0,0,Math.PI*2);ctx.fill();
+    ctx.restore();
+  }
+  // Belt
+  ctx.fillStyle='#140600';ctx.fillRect(0,28,24,4);
+  // Body
+  const bodyG=ctx.createLinearGradient(0,6,24,30);
+  bodyG.addColorStop(0,'#d85a00');bodyG.addColorStop(1,'#8c3000');
+  ctx.fillStyle=bodyG;ctx.fillRect(0,6,24,24);
+  // Collar
+  ctx.fillStyle='#f5ead0';
+  ctx.beginPath();ctx.moveTo(8,6);ctx.lineTo(12,11);ctx.lineTo(16,6);ctx.closePath();ctx.fill();
+  // Arms
+  ctx.save();ctx.translate(0,8);ctx.rotate(-Math.sin(t*2+Math.PI)*8*Math.PI/180);
+  ctx.fillStyle='#c07030';ctx.fillRect(-4,0,8,14);
+  ctx.restore();
+  ctx.save();ctx.translate(24,8);ctx.rotate(Math.sin(t*2)*8*Math.PI/180);
+  ctx.fillStyle='#c07030';ctx.fillRect(-4,0,8,14);
+  // Spatula
+  ctx.save();ctx.translate(-2,14);ctx.rotate(-0.4+Math.sin(t)*0.12);
+  ctx.fillStyle='#888';ctx.fillRect(-1.5,-20,3,22);
+  const bladeG=ctx.createLinearGradient(-7,-25,7,-18);
+  bladeG.addColorStop(0,'#c0c0c0');bladeG.addColorStop(0.5,'#e0e0e0');bladeG.addColorStop(1,'#a0a0a0');
+  ctx.fillStyle=bladeG;ctx.fillRect(-7,-27,14,7);
+  ctx.fillStyle='rgba(255,255,255,0.3)';ctx.fillRect(-6,-26.5,12,1.5);
+  ctx.restore();ctx.restore();
+
+  // Head
+  const hy=-22;
+  // Ears
+  for(const [ex] of [[-2],[26]]){
+    ctx.fillStyle='#a86030';ctx.beginPath();ctx.ellipse(ex,hy+17,5,6.5,0,0,Math.PI*2);ctx.fill();
+  }
+  // Head shape
+  const hfg=ctx.createRadialGradient(12,hy+10,2,12,hy+12,18);
+  hfg.addColorStop(0,'#d08840');hfg.addColorStop(1,'#844010');
+  ctx.fillStyle=hfg;ctx.beginPath();ctx.ellipse(12,hy+12,15,17,0,0,Math.PI*2);ctx.fill();
+  // Hair
+  ctx.fillStyle='#1c0e00';
+  ctx.beginPath();ctx.ellipse(10,hy-4,11,6,-0.05,Math.PI,Math.PI*2);ctx.fill();
+  ctx.fillRect(-2,hy-4,6,10);ctx.fillRect(18,hy-4,5,10);
+  // Eyes
+  ctx.fillStyle='#f0e4d0';
+  ctx.beginPath();ctx.ellipse(7,hy+12,5,4.5,0,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(17,hy+12,5,4.5,0,0,Math.PI*2);ctx.fill();
+  for(const ex of [7,17]){
+    ctx.fillStyle='#8a3808';ctx.beginPath();ctx.arc(ex,hy+12,3.5,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#010000';ctx.beginPath();ctx.arc(ex,hy+12,2,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='rgba(255,255,255,0.6)';ctx.beginPath();ctx.arc(ex-1,hy+10.5,1,0,Math.PI*2);ctx.fill();
+  }
+  // Brows — furrowed
+  ctx.strokeStyle='rgba(20,8,0,0.9)';ctx.lineWidth=2.5;
+  ctx.beginPath();ctx.moveTo(2,hy+7);ctx.quadraticCurveTo(7,hy+3.5,12,hy+6);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(12,hy+6);ctx.quadraticCurveTo(17,hy+3.5,22,hy+7);ctx.stroke();
+  // Nose
+  ctx.fillStyle='#a85c18';ctx.beginPath();ctx.ellipse(12,hy+19,5.5,4.5,0,0,Math.PI*2);ctx.fill();
+  // Mustache
+  ctx.fillStyle='#140800';
+  ctx.beginPath();ctx.ellipse(8,hy+25,5.5,3,0.12,0,Math.PI);ctx.fill();
+  ctx.beginPath();ctx.ellipse(16,hy+25,5.5,3,-0.12,0,Math.PI);ctx.fill();
+  // Mouth — grim line
+  ctx.strokeStyle='rgba(70,25,5,0.8)';ctx.lineWidth=1.4;
+  ctx.beginPath();
+  ctx.moveTo(7,hy+28);ctx.lineTo(10,hy+27);ctx.lineTo(12,hy+28);ctx.lineTo(14,hy+27);ctx.lineTo(17,hy+28);
+  ctx.stroke();
+  ctx.restore();
+}
+
+// ── Input ─────────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (!G) return;
+  G.keys[e.key] = true;
+  if (e.key === '1') useSkill(1);
+  if (e.key === '2') useSkill(2);
+  if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].includes(e.key)) {
+    // Only prevent default if the canvas is visible / game is active
+    if (running) e.preventDefault();
+  }
+});
+document.addEventListener('keyup', e => { if(G) G.keys[e.key] = false; });
+
+// ── Init draw (static frame before game starts) ───────────
+resizeCanvas();
+// Draw a placeholder dark frame
+ctx.fillStyle = '#0d0400';
+ctx.fillRect(0,0,CANVAS_W,CANVAS_H);
+ctx.fillStyle = 'rgba(200,134,10,0.15)';
+ctx.font = '14px Cinzel, serif';
+ctx.textAlign = 'center';
+ctx.fillText('✦ Click BEGIN to enter the house ✦', CANVAS_W/2, CANVAS_H/2);
+
+})();
+</script>
+</body>
+</html>
