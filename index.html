@@ -569,14 +569,161 @@
   }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 720px) {
+
+  /* Tablet (≤ 800px) */
+  @media (max-width: 800px) {
+    .frame { margin: 0; border-left: none; border-right: none; }
+    .layout { grid-template-columns: 1fr 2fr; }
+    .sidebar-r { display: none; }
+    .sidebar-l { border-right: 1px solid #d4a040; min-width: 160px; }
+    .hero-title { font-size: 26px; }
+  }
+
+  /* Mobile (≤ 540px) */
+  @media (max-width: 540px) {
+    /* Frame */
+    .frame { margin: 0; border: none; border-top: 3px double #c8860a; }
+    .corner { display: none; }
+
+    /* Hero */
+    .hero { padding: 20px 14px 16px; }
+    .hero-eyebrow { font-size: 12px; letter-spacing: 4px; }
+    .hero-title { font-size: 20px; letter-spacing: 1px; line-height: 1.3; }
+    .hero-sub { font-size: 13px; margin: 10px auto; }
+    .hero-sub br { display: none; }
+    .hero-stamp { font-size: 11px; letter-spacing: 2px; }
+    .radiant-rule { width: 160px; }
+
+    /* Nav — horizontal scroll strip */
+    .nav-bar { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .nav-bar::-webkit-scrollbar { height: 2px; background: #3b1a00; }
+    .nav-bar::-webkit-scrollbar-thumb { background: #c8860a; }
+    .nav-bar a { font-size: 14px; padding: 10px 12px; white-space: nowrap; flex-shrink: 0; border-right: 1px solid #5a3200; }
+
+    /* Layout — single column, left sidebar hidden, right sidebar hidden */
     .layout { grid-template-columns: 1fr; }
-    .sidebar-l, .sidebar-r { border: none; border-bottom: 1px solid #d4a040; }
-    .hero-title { font-size: 22px; }
+    .sidebar-l { display: none; }
+    .sidebar-r { display: none; }
+
+    /* Inject a mobile reliquary strip above main content */
+    .mobile-reliquary {
+      display: flex !important;
+      gap: 0;
+      background: #fdf0d0;
+      border-bottom: 1px solid #d4a040;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .mobile-reliquary .mr-cell {
+      flex: 0 0 auto;
+      text-align: center;
+      padding: 8px 14px;
+      border-right: 1px solid #d4a040;
+      min-width: 90px;
+    }
+    .mobile-reliquary .mr-label {
+      font-family: 'VT323', monospace;
+      font-size: 10px;
+      color: #a07030;
+      letter-spacing: 2px;
+      display: block;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .mobile-reliquary .mr-val {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #3b1a00;
+      display: block;
+    }
+    .mobile-reliquary .mr-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      letter-spacing: 1px;
+      font-weight: 700;
+      color: #3b1a00;
+      background: #faecc0;
+      border: 1px solid #c8860a;
+      padding: 5px 8px;
+      cursor: pointer;
+      margin-top: 4px;
+      display: inline-block;
+    }
+
+    /* Main content */
+    .main-content { padding: 14px 14px; }
+
+    /* Scripture */
+    .scripture-text { font-size: 14px; line-height: 1.75; }
+    .illuminated-cap { font-size: 44px; padding: 3px 6px; margin: 2px 6px 0 0; }
+    .rubric { font-size: 12.5px; }
+    .scripture-block { padding: 12px 12px; }
+    .warning-illuminated { padding: 12px; }
+    .warning-illuminated .w-body { font-size: 13.5px; }
+
+    /* Canon grid */
     .canon-grid { grid-template-columns: 1fr; }
     .george-stat-grid { grid-template-columns: 1fr 1fr; }
+
+    /* Dialogue */
     .dialogue-row { flex-direction: column; gap: 4px; }
-    .speaker-tag { min-width: unset; }
+    .speaker-tag { min-width: unset; font-size: 9px; }
+    .dialogue-bubble { font-size: 13px; padding: 8px 10px; }
+
+    /* Transformation logs */
+    .transf-log { padding: 10px 12px; }
+
+    /* Testimony posts */
+    .post-body-inner { font-size: 14px; padding: 10px 12px; }
+    .post-head { font-size: 11px; padding: 5px 10px; }
+    .post-foot { font-size: 12px; flex-wrap: wrap; gap: 8px; }
+
+    /* Footer */
+    .footer-holy { font-size: 12px; padding: 14px 12px; line-height: 1.8; }
+    .footer-holy .f-mono { font-size: 11px; letter-spacing: 1px; }
+
+    /* Marquee */
+    .marquee-bar { font-size: 13px; }
+  }
+
+  /* Mobile oracle/prayer — inject at bottom on small screens */
+  @media (max-width: 540px) {
+    .mobile-bottom-bar {
+      display: flex !important;
+      gap: 0;
+      background: #3b1a00;
+      border-top: 2px solid #c8860a;
+    }
+    .mobile-bottom-bar button {
+      flex: 1;
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #f0c96a;
+      background: transparent;
+      border: none;
+      border-right: 1px solid #5a3200;
+      padding: 12px 6px;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    .mobile-bottom-bar button:last-child { border-right: none; }
+    .mobile-bottom-bar button:active { background: #5a3200; }
+    .mobile-aura-out {
+      display: block !important;
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: #7a4a10;
+      text-align: center;
+      padding: 10px 16px;
+      background: #fdf0d0;
+      border-top: 1px solid #d4a040;
+      min-height: 0;
+      line-height: 1.6;
+    }
   }
 </style>
 </head>
@@ -620,6 +767,27 @@
     <a onclick="showP('testimony')" id="nav-testimony">V. Testimony</a>
     <a onclick="showP('about')" id="nav-about">VI. Colophon</a>
   </nav>
+
+  <!-- MOBILE RELIQUARY STRIP (hidden on desktop via CSS default) -->
+  <div class="mobile-reliquary" style="display:none;">
+    <div class="mr-cell">
+      <span class="mr-label">Prayers</span>
+      <span class="mr-val" id="m-prayerCount">49</span>
+      <button class="mr-btn" onclick="addPrayer(); document.getElementById('m-prayerCount').textContent = document.getElementById('prayerCount').textContent">✦ Pray</button>
+    </div>
+    <div class="mr-cell">
+      <span class="mr-label">Recipe</span>
+      <span class="mr-val" style="font-size:13px;padding-top:4px;display:block;color:#8b3a00;">NONE</span>
+    </div>
+    <div class="mr-cell">
+      <span class="mr-label">Days</span>
+      <span class="mr-val" id="m-daysSince" style="font-size:18px;">—</span>
+    </div>
+    <div class="mr-cell">
+      <span class="mr-label">Temp</span>
+      <span class="mr-val" style="font-size:13px;padding-top:4px;display:block;">202°F</span>
+    </div>
+  </div>
 
   <!-- LAYOUT -->
   <div class="layout">
@@ -980,6 +1148,14 @@
 
   </div><!-- /.layout -->
 
+  <!-- MOBILE BOTTOM BAR -->
+  <div class="mobile-bottom-bar" style="display:none;">
+    <button onclick="doAura(); document.getElementById('m-aura-out').textContent = document.getElementById('auraOut').textContent">✦ Oracle</button>
+    <button onclick="doRate(Math.ceil(Math.random()*5))">✦ Rate</button>
+    <button onclick="addPrayer(); document.getElementById('m-prayerCount').textContent = document.getElementById('prayerCount').textContent">✦ Pray</button>
+  </div>
+  <div class="mobile-aura-out" id="m-aura-out" style="display:none;"></div>
+
   <!-- FOOTER -->
   <footer class="footer-holy">
     ✦ &nbsp; Codex Brisketicus · Vol. I · Est. S1E7 MMXVII &nbsp; ✦<br>
@@ -1031,6 +1207,8 @@
     const ep = new Date('2017-11-16');
     const d = Math.floor((new Date() - ep) / 864e5);
     document.getElementById('daysSince').textContent = d.toLocaleString();
+    const mDays = document.getElementById('m-daysSince');
+    if (mDays) mDays.textContent = d.toLocaleString();
 
     const v = Math.floor(Math.random() * 30) + 48;
     document.getElementById('hitC').textContent = String(v).padStart(5, '0');
@@ -1282,6 +1460,94 @@
     color: #3a1400;
     letter-spacing: 2px;
   }
+
+  /* ── Arcade mobile responsive ── */
+  @media (max-width: 800px) {
+    .game-wrap { grid-template-columns: 100px 1fr 100px; }
+    .gp-stat-val { font-size: 20px; }
+    .arcade-header .a-title { font-size: 18px; }
+  }
+
+  @media (max-width: 540px) {
+    .game-wrap {
+      grid-template-columns: 1fr;
+    }
+    .game-panel {
+      border-right: none;
+      border-bottom: 1px solid #3a1400;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: flex-start;
+    }
+    .game-panel .gp-label { width: 100%; }
+    .game-panel .gp-stat { flex: 1 1 80px; min-width: 80px; }
+    .game-panel-r {
+      border-left: none;
+      border-top: 1px solid #3a1400;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: flex-start;
+    }
+    .game-panel-r .gp-label { width: 100%; }
+    .game-panel-r .gp-stat { flex: 1 1 80px; min-width: 80px; }
+    #george-says { width: 100%; }
+    .gp-stat-val { font-size: 18px; }
+    .gp-stat-label { font-size: 9px; }
+    .arcade-footer { font-size: 11px; letter-spacing: 1px; padding: 10px 12px; line-height: 1.7; }
+    #gameArena { min-height: 260px; }
+    .arcade-header .a-title { font-size: 16px; letter-spacing: 1px; }
+    .arcade-header .a-sub { font-size: 12px; }
+    #touch-dpad {
+      display: grid !important;
+      grid-template-columns: 44px 44px 44px;
+      grid-template-rows: 44px 44px 44px;
+      gap: 3px;
+      justify-content: center;
+      background: #0d0400;
+      padding: 10px;
+      border-top: 1px solid #3a1400;
+    }
+    .dpad-btn {
+      background: #1a0800;
+      border: 1px solid #3a1400;
+      color: #c8860a;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+    }
+    .dpad-btn:active { background: #3a1400; }
+    .dpad-center { background: #0d0400 !important; border: none !important; }
+    #touch-skills {
+      display: flex !important;
+      gap: 8px;
+      justify-content: center;
+      background: #0d0400;
+      padding: 0 10px 10px;
+    }
+    .skill-btn {
+      flex: 1;
+      max-width: 160px;
+      background: #150800;
+      border: 1px solid #c8860a;
+      color: #f0c96a;
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 9px;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+    .skill-btn:active { background: #3a1400; }
+  }
 </style>
 
 <div class="arcade-section">
@@ -1408,6 +1674,23 @@
 
   <div class="arcade-footer">
     CONTROLS: WASD / ARROWS — MOVE &nbsp;·&nbsp; SHIFT — SPRINT &nbsp;·&nbsp; [1] SLOW TIME &nbsp;·&nbsp; [2] DROP DECOY &nbsp;·&nbsp; GAME MUST BE FOCUSED (CLICK CANVAS)
+  </div>
+
+  <!-- TOUCH D-PAD (mobile only, shown via CSS) -->
+  <div id="touch-dpad" style="display:none;">
+    <div class="dpad-btn dpad-center"></div>
+    <div class="dpad-btn" id="dp-up">▲</div>
+    <div class="dpad-btn dpad-center"></div>
+    <div class="dpad-btn" id="dp-left">◀</div>
+    <div class="dpad-btn dpad-center" id="dp-sprint" style="font-size:10px;font-family:'Cinzel',serif;letter-spacing:0;color:#c8860a;">RUN</div>
+    <div class="dpad-btn" id="dp-right">▶</div>
+    <div class="dpad-btn dpad-center"></div>
+    <div class="dpad-btn" id="dp-down">▼</div>
+    <div class="dpad-btn dpad-center"></div>
+  </div>
+  <div id="touch-skills" style="display:none;">
+    <button class="skill-btn" id="sk-btn-1" onclick="useSkill(1)">[1] HYPER-FOCUS</button>
+    <button class="skill-btn" id="sk-btn-2" onclick="useSkill(2)">[2] DROP DECOY</button>
   </div>
 
 </div>
@@ -2040,6 +2323,27 @@ ctx.fillStyle = 'rgba(200,134,10,0.15)';
 ctx.font = '14px Cinzel, serif';
 ctx.textAlign = 'center';
 ctx.fillText('✦ Click BEGIN to enter the house ✦', CANVAS_W/2, CANVAS_H/2);
+
+// ── Touch D-pad ───────────────────────────────────────────
+const dpadMap = {
+  'dp-up':    ['w', 'W', 'ArrowUp'],
+  'dp-down':  ['s', 'S', 'ArrowDown'],
+  'dp-left':  ['a', 'A', 'ArrowLeft'],
+  'dp-right': ['d', 'D', 'ArrowRight'],
+  'dp-sprint':['Shift'],
+};
+Object.entries(dpadMap).forEach(([id, keys]) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const press = (e) => { e.preventDefault(); if (G) keys.forEach(k => { G.keys[k] = true; }); };
+  const release = (e) => { e.preventDefault(); if (G) keys.forEach(k => { G.keys[k] = false; }); };
+  el.addEventListener('touchstart', press, { passive: false });
+  el.addEventListener('touchend',   release, { passive: false });
+  el.addEventListener('touchcancel',release, { passive: false });
+  el.addEventListener('mousedown',  press);
+  el.addEventListener('mouseup',    release);
+  el.addEventListener('mouseleave', release);
+});
 
 })();
 </script>
